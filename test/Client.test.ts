@@ -328,7 +328,7 @@ describe('Client', () => {
           versionMajor: 2,
         })
         await expect(
-          alice.sendMessage(bob.address, key, { contentType: type2 })
+          alice.sendMessage(bob.address, key, {contentType: type2})
         ).rejects.toThrow('unknown content type xmtp.test/public-key:2.0')
 
         await stream.return()
@@ -356,7 +356,7 @@ describe('Client', () => {
         for (let i = 0; i < 5; i++) {
           await bobConvo.send('hi')
         }
-        const messages = await bobConvo.messages({ limit: 2 })
+        const messages = await bobConvo.messages({limit: 2})
         expect(messages).toHaveLength(2)
       })
     })
@@ -376,7 +376,7 @@ describe('canMessage', () => {
 
     const canMessageUnregisteredClient = await Client.canMessage(
       newWallet().address,
-      { env: 'local' }
+      {env: 'local'}
     )
     expect(canMessageUnregisteredClient).toBeFalsy()
   })
@@ -389,7 +389,7 @@ describe('ClientOptions', () => {
       newClient: newLocalHostClient,
     },
   ]
-  if (process.env.CI || process.env.TESTNET) {
+  if (process?.env.CI || process?.env.TESTNET) {
     tests.push({
       name: 'dev',
       newClient: newDevClient,

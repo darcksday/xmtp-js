@@ -13,7 +13,7 @@ describe('PrivateTopicStore', () => {
       name: 'local docker node',
     },
   ]
-  if (process.env.CI || process.env.TESTNET) {
+  if (process?.env.CI || process?.env.TESTNET) {
     tests.push({
       name: 'dev',
     })
